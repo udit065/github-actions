@@ -1,0 +1,38 @@
+name: WorkFlow sequence
+on: 
+  workflow_run:
+    workflows: [Jobs sequence]
+    types:
+      - completed
+
+jobs:
+  html-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v5
+
+      - name: html file validate
+        run: test -f index.html
+
+  js-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v5
+
+      - name: js file validate
+        run: test -f script.js
+
+  code-validate:
+    needs: [html-check, js-check]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v5
+
+      - name: js file validate
+        run: node --check script.js
