@@ -23,7 +23,7 @@ jobs:
         run: test -f script.js
 
   code-validate:
-    needs: [job-sequence, file-check]
+    needs: [html-check, js-check]
     runs-on: ubuntu-latest
 
     steps:
