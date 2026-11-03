@@ -1,5 +1,6 @@
 name: Push WorkFlow
-on: push
+# on: push
+on: workflow_dispatch
 
 jobs:
   push-event-job-test:
