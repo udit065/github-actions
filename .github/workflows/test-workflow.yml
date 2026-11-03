@@ -1,0 +1,13 @@
+name : Test WorkFlow
+on: workflow_dispatch
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Learning Github Action
+        run: echo "Hello Github Actions"
+      - name: Second Step
+        run: echo "Done!!"
+        
+    
