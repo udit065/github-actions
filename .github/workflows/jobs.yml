@@ -2,19 +2,23 @@ name: Jobs sequence
 on: push
 
 jobs:
-  job-sequence:
+  html-check:
     runs-on: ubuntu-latest
 
     steps:
       - name: get-repo-code
         uses: actions/checkout@v5
+
       - name: html file validate
         run: test -f index.html
 
-  file-check:
+  js-check:
     runs-on: ubuntu-latest
 
     steps:
+      - name: get-repo-code
+        uses: actions/checkout@v5
+
       - name: js file validate
         run: test -f script.js
 
