@@ -1,0 +1,28 @@
+name: Jobs sequence
+on: push
+
+jobs: 
+  job-sequence:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: get-repo-code
+        uses: actions/checkout@v5
+
+  file-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: html file validate
+        run: test -f test.html
+
+      - name: js file validate
+        run: test -f script.js
+
+  code-validate:
+    needs: [job-sequence,file-check]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: js file validate
+        run: node --check script.js
