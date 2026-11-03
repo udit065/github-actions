@@ -1,0 +1,11 @@
+name: Push WorkFlow
+on: push
+
+jobs:
+  push-event-job-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push Event Job
+        run: echo "Testing on Push Events."
+      - name: Done
+        run: echo "Done"
