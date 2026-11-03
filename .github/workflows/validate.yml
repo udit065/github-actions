@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: html file validate
-        run: test -f index.html
+        run: test -f test.html
 
       - name: js file validate
         run: test -f script.js
